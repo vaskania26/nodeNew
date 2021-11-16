@@ -1,5 +1,17 @@
 {
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "name": "nodenew",
+  "version": "1.0.0",
+  "main": "fs.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
-    "cli-progress": "^3.9.1"
+    "lodash": "^4.17.21"
   }
 }
