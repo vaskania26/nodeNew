@@ -1,8 +1,18 @@
 const fs = require("fs");
 const http = require("http");
+const _ = require("lodash");
 
 const server = http.createServer((req, res) => {
-  console.log(req.url, req.method);
+  // lodash
+  const num = _.random(0, 20);
+  console.log(num);
+
+  const greet = _.once(() => {
+    console.log("hello");
+  });
+
+  greet();
+  greet();
 
   // Set header content-type
   res.setHeader("Content-Type", "text/html");
@@ -69,6 +79,6 @@ const server = http.createServer((req, res) => {
   } */
 });
 
-server.listen(3000, "localhost", () => {
+server.listen(5500, "localhost", () => {
   console.log("listening for request on port 3000");
 });
