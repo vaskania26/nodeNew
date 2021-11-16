@@ -19,7 +19,7 @@ console.log("last line"); */
 
 /* Directories */
 
-if (!fs.existsSync("./assets")) {
+/* if (!fs.existsSync("./assets")) {
   fs.mkdir("./assets", (err) => {
     if (err) {
       console.error(err);
@@ -33,6 +33,15 @@ if (!fs.existsSync("./assets")) {
     }
     console.log("folder deleted");
   });
-}
+} */
 
 /* Deleting files */
+
+if (fs.existsSync("./docs/deleteme.txt")) {
+  fs.unlink("./docs/deleteme.txt", (err) => {
+    if (err) {
+      console.error(err);
+    }
+  });
+  console.log("file deleted");
+}
