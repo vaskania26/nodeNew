@@ -9,9 +9,14 @@ readStream.on("data", (chunk) => {
 const readStream = fs.createReadStream("./docs/blog2.txt", "utf8");
 const writeStream = fs.createWriteStream("./docs/blog3.txt");
 
-readStream.on("data", (chunk) => {
+/* readStream.on("data", (chunk) => {
   console.log("---------- NEW CHUNK ----------");
   console.log(chunk);
   writeStream.write("\nNEW CHUNK\n");
   writeStream.write(chunk);
 });
+ */
+
+/* Piping */
+
+readStream.pipe(writeStream);
