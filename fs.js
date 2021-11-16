@@ -19,11 +19,20 @@ console.log("last line"); */
 
 /* Directories */
 
-fs.mkdir("./assets", (err) => {
-  if (err) {
-    console.error(err);
-  }
-  console.log("folder created");
-});
+if (!fs.existsSync("./assets")) {
+  fs.mkdir("./assets", (err) => {
+    if (err) {
+      console.error(err);
+    }
+    console.log("folder created");
+  });
+} else {
+  fs.rmdir("./assets", (err) => {
+    if (err) {
+      console.error(err);
+    }
+    console.log("folder deleted");
+  });
+}
 
 /* Deleting files */
