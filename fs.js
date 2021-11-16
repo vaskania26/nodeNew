@@ -23,6 +23,7 @@ fs.mkdir("./assets", (err) => {
   if (err) {
     console.error(err);
   }
+  console.log("folder created");
 });
 
 /* Deleting files */
