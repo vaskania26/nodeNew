@@ -13,10 +13,16 @@ console.log("last line"); */
 
 /* Writing files */
 
-fs.writeFile("./docs/blog2.txt", "hello world", () => {
+/* fs.writeFile("./docs/blog2.txt", "hello world", () => {
   console.log("file was written");
-});
+}); */
 
 /* Directories */
+
+fs.mkdir("./assets", (err) => {
+  if (err) {
+    console.error(err);
+  }
+});
 
 /* Deleting files */
