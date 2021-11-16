@@ -1,7 +1,9 @@
 /* 1 export */
 
 const people = ["vaska", "john", "alex"];
+const ages = [20, 22, 44, 23];
 
-console.log(people);
-
-module.exports = people;
+module.exports = {
+  people,
+  ages,
+};
