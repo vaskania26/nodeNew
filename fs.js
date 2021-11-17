@@ -13,15 +13,19 @@ console.log("last line");
 
 /* Writing files */
 
-fs.writeFile("./docs/blog2.txt", "hello world", () => {
-  console.log("file was written");
+fs.writeFile("./docs/blog2.txt", "hello world", (err) => {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log("file was written");
+  }
 });
 
 /* Rename file */
 
 fs.rename("./docs/blog2.txt", "./docs/blog10.txt", (err) => {
   if (err) {
-    console.log(err);
+    console.error(err);
   } else {
     console.log("File successfully renamed");
   }
@@ -31,7 +35,7 @@ fs.rename("./docs/blog2.txt", "./docs/blog10.txt", (err) => {
 
 fs.appendFile("./docs/blog1.txt", "insert some data", (err) => {
   if (err) {
-    console.log(err);
+    console.error(err);
   } else {
     console.log("Text inserted");
   }
@@ -55,7 +59,7 @@ if (!fs.existsSync("./assets")) {
   });
 }
 
-/* Deleting files */
+/* Deleting file */
 
 if (fs.existsSync("./docs/deleteme.txt")) {
   fs.unlink("./docs/deleteme.txt", (err) => {
@@ -65,3 +69,21 @@ if (fs.existsSync("./docs/deleteme.txt")) {
   });
   console.log("file deleted");
 }
+
+/* Delete more than 1 file and Directory */
+
+fs.readdir("./docs", (err, files) => {
+  if (err) {
+    console.error(err);
+  } else {
+    for (let file of files) {
+      fs.unlink(`./docs/${file}`, (err) => {
+        if (err) {
+          console.error(err);
+        } else {
+          console.log("File removed");
+        }
+      });
+    }
+  }
+});
