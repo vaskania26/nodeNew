@@ -2,24 +2,44 @@ const fs = require("fs");
 
 /* Reading files */
 
-/* fs.readFile("./docs/blog1.txt", "utf8", (err, data) => {
+fs.readFile("./docs/blog1.txt", "utf8", (err, data) => {
   if (err) {
     console.error(err);
   }
   console.log(data);
 });
 
-console.log("last line"); */
+console.log("last line");
 
 /* Writing files */
 
-/* fs.writeFile("./docs/blog2.txt", "hello world", () => {
+fs.writeFile("./docs/blog2.txt", "hello world", () => {
   console.log("file was written");
-}); */
+});
+
+/* Rename file */
+
+fs.rename("./docs/blog2.txt", "./docs/blog10.txt", (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("File successfully renamed");
+  }
+});
+
+/* Append file, insert text  */
+
+fs.appendFile("./docs/blog1.txt", "insert some data", (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Text inserted");
+  }
+});
 
 /* Directories */
 
-/* if (!fs.existsSync("./assets")) {
+if (!fs.existsSync("./assets")) {
   fs.mkdir("./assets", (err) => {
     if (err) {
       console.error(err);
@@ -33,7 +53,7 @@ console.log("last line"); */
     }
     console.log("folder deleted");
   });
-} */
+}
 
 /* Deleting files */
 
